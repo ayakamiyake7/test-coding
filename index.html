@@ -33,14 +33,15 @@
         <img
           src="images/header_area--img_user.png"
           alt=""
-          class="header-area--img_user"
+          class="header-area--img_user2"
         />
         <img
           src="images/header_area--img_user.png"
           alt=""
-          class="header-area--img_user"
+          class="header-area--img_user3"
         />
       </div>
+      <div class="red_box"></div>
     </header>
 
     <nav class="menu">
@@ -55,8 +56,6 @@
     </nav>
 
     <div class="menu-mobile">
-      <span class="menu-mobile--border"></span>
-      <span class="menu-mobile--border"></span>
       <span class="menu-mobile--border"></span>
     </div>
 
@@ -97,6 +96,21 @@
         </div>
       </div>
     </div>
+
+    <!-- Pure js slider -->
+    <section class="slider">
+      <div class="slider--items">
+        <div class="slider--item slider--item-1 active">Slide1</div>
+        <div class="slider--item slider--item-2">Slide 2</div>
+        <div class="slider--item slider--item-3">Slide 3</div>
+        <div class="slider--item slider--item-4">Slide 4</div>
+      </div>
+      <div class="slider--arrows">
+        <a class="slider--arrow slider--arrow-left">&lt;</a>
+        <a class="slider--arrow slider--arrow-right">&gt;</a>
+      </div>
+    </section>
+
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <script>
       var swiper = new Swiper(".mySwiper", {
@@ -114,6 +128,30 @@
         thumbs: {
           swiper: swiper,
         },
+      });
+    </script>
+
+    <script src="/js/slider.js"></script>
+    <script>
+      const useIcon = document.querySelector(".header-area--img_user");
+      const redBox = document.querySelector(".red_box");
+      // var timeOut1 = setTimeout(boxTimeOut1, 2000);
+      var timeOut1 = null;
+      useIcon.addEventListener("mouseover", () => {
+        let timeOut1 = setTimeout(boxTimeOut1, 2000);
+        function boxTimeOut1() {
+          redBox.classList.add("active");
+        }
+      });
+      useIcon.addEventListener("mouseout", () => {
+        const timeOut2 = setTimeout(boxTimeOut2, 2000);
+        function boxTimeOut2() {
+          redBox.classList.remove("active");
+        }
+        function stopTimeOut() {
+          clearTimeout(timeOut1);
+        }
+        stopTimeOut();
       });
     </script>
   </body>
