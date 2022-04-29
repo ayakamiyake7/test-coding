@@ -136,22 +136,28 @@
       const useIcon = document.querySelector(".header-area--img_user");
       const redBox = document.querySelector(".red_box");
       // var timeOut1 = setTimeout(boxTimeOut1, 2000);
-      var timeOut1 = null;
+
+      // var timeOut1 = null;
+      let timeOutId;
       useIcon.addEventListener("mouseover", () => {
-        let timeOut1 = setTimeout(boxTimeOut1, 2000);
-        function boxTimeOut1() {
-          redBox.classList.add("active");
-        }
+        const addActive = redBox.classList.add("active");
+        let timeOutId = setTimeout(addActive, 2000);
+        // function boxTimeOut1() {
+        //   redBox.classList.add("active");
+        // }
+        // let timeOut1 = setTimeout(boxTimeOut1, 2000);
       });
       useIcon.addEventListener("mouseout", () => {
-        const timeOut2 = setTimeout(boxTimeOut2, 2000);
-        function boxTimeOut2() {
-          redBox.classList.remove("active");
-        }
-        function stopTimeOut() {
-          clearTimeout(timeOut1);
-        }
-        stopTimeOut();
+        const removeActive = redBox.classList.remove("active");
+        clearTimeout(timeOutId);
+        // const timeOut2 = setTimeout(boxTimeOut2, 2000);
+        // function boxTimeOut2() {
+        //   redBox.classList.remove("active");
+        // }
+        // function stopTimeOut() {
+        //   clearTimeout(timeOut1);
+        // }
+        // stopTimeOut();
       });
     </script>
   </body>
