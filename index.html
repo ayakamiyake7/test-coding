@@ -57,7 +57,10 @@
 
     <div class="menu-mobile">
       <span class="menu-mobile--border"></span>
+      <span class="menu-mobile--border"></span>
+      <span class="menu-mobile--border"></span>
     </div>
+    <div class="menu-mobile_content"></div>
 
     <div
       style="--swiper-navigation-color: #fff; --swiper-pagination-color: #fff"
@@ -138,6 +141,15 @@
 
       useIcon.addEventListener("mouseover", mouseOver);
       useIcon.addEventListener("mouseout", mouseOut);
+
+      // Menu button for mobile
+      const menuButton = document.querySelector(".menu-mobile");
+      const menuContent = document.querySelector(".menu-mobile_content");
+      const menuBorder = document.querySelector(".menu-mobile--border");
+      menuButton.addEventListener("click", () => {
+        menuContent.classList.toggle("active");
+        menuButton.classList.toggle("active");
+      });
     </script>
   </body>
 </html>
